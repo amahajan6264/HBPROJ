@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './component/Home.component';
 import { LoginComponent } from './component/login/login.component';
@@ -23,6 +23,7 @@ import { FilterComponent } from './component/filter/filter.component';
 import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ServicedemoComponent } from './component/servicedemo/servicedemo.component';
+import { ReactivedemoComponent } from './component/reactivedemo/reactivedemo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,14 +45,16 @@ import { ServicedemoComponent } from './component/servicedemo/servicedemo.compon
     ProductComponent,
     FilterComponent,
     ServicedemoComponent,
-    RegisterComponent
+    RegisterComponent,
+    ReactivedemoComponent
   ],
-  imports: [ 
+  imports: [
     FormsModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [RegisterComponent]
+  bootstrap: [ReactivedemoComponent]
 })
 export class AppModule { }
