@@ -1,1 +1,39 @@
-<p>register works!</p>
+<!-- app.component.html -->
+
+<div class="container">
+    <div class="text-info">
+        <span>Register Form</span>
+    </div>
+    <form #myForm="ngForm" class="mt-4">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username:</label>
+            <input type="text" name="username" class="form-control" #username="ngModel" ngModel required>
+            <div *ngIf="username.invalid && username.touched">
+                <span class="text-danger">User name required</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" name="password" class="form-control" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" #password="ngModel" ngModel required>
+            <div *ngIf="password.invalid && password.touched">
+                <span class="text-danger">Password must valid format</span>
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="age" class="form-label">Age:</label>
+            <input type="text" name="age" class="form-control" ngModel #age="ngModel" required>
+            <div *ngIf="age.invalid">
+
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="mobile" class="form-label">Mobile Number:</label>
+            <input type="text"  name="mobile" class="form-control"  pattern="^[0-9]{10}$" #mobile="ngModel" ngModel required>
+            <div *ngIf="mobile.invalid && mobile.touched">
+                <span class="text-danger">Mobile number is invalid</span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid">Submit</button>
+        <button type="button" class="btn btn-success ms-2" [disabled]="!myForm.touched">Save</button>
+    </form>
+</div>

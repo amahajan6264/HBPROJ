@@ -43,7 +43,8 @@ import { ServicedemoComponent } from './component/servicedemo/servicedemo.compon
     ChildComponent,
     ProductComponent,
     FilterComponent,
-    ServicedemoComponent
+    ServicedemoComponent,
+    RegisterComponent
   ],
   imports: [ 
     FormsModule,
@@ -51,6 +52,6 @@ import { ServicedemoComponent } from './component/servicedemo/servicedemo.compon
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [ServicedemoComponent]
+  bootstrap: [RegisterComponent]
 })
 export class AppModule { }
