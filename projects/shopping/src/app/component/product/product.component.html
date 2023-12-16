@@ -1,0 +1,15 @@
+<div class="container-fluid row">
+    <nav class="col-3">
+        <app-filter (FilterChanged)="GetCategory($event)" [ElectronicsCount]="ElectronicsCount" [JweleryCount]="JweleryCount" [MensCount]="MensCount" [WomensCount]="WomensCount"> </app-filter>
+    </nav>
+    <main class="col-9">
+        <div class="d-flex flex-wrap overflow-auto " style="height: 500px;">
+            <div *ngFor="let item of Product" class="card p-2 m-2" style="width: 200px;">
+                <img [src]="item.image" height="150" class="card-img-top">
+                <div class="card-footer">
+                    <p>{{item.title}}</p>
+                </div>
+            </div>
+        </div>
+    </main>
+</div>

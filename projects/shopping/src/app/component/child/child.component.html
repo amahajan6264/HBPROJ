@@ -1,0 +1,19 @@
+<h1>child works!</h1>
+<h2>{{MessageFromParent}}</h2>
+<table class="table "  style="width:200px;">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ProductDetail.Name}}</td>
+            <td>{{ProductDetail.Price}}</td>
+        </tr>
+    </tbody>
+     
+</table>
+
+<button class="btn btn-light" (click)="onButtonClick()">Message to Parent </button>

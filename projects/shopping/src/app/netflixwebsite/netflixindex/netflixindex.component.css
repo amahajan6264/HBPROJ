@@ -1,0 +1,8 @@
+.bg-image{
+    background-image: url("/assets/netimages.jpg");
+    height: 768px;
+}
+.box{
+    background-color: rgba(0,0,0,0.6);
+    height: 768px;
+}

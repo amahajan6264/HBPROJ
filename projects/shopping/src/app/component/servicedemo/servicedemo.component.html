@@ -1,0 +1,30 @@
+<div class="container">
+    <h2>Categories</h2>
+    <!-- <ol>
+            <li *ngFor="let item of Categories; let i = index">
+                {{item.toUpperCase()}}
+            </li>
+        </ol> -->
+    <div *ngFor="let item of Categories; let i = index">
+        <p>{{i+1}} :- {{item | uppercase | titlecase }}</p>
+    </div>
+    <div class="">
+        <table class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr class="success">
+                    <th class="">Title</th>
+                    <!-- <th>Preview</th> -->
+                    <th>Product</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of Products">
+                    <td [width]="800">{{item.title}}</td>
+                    <td><img [src]="item.image" width="150px" height="100px"></td>
+                    <td [width]="150" style="text-align: center;">{{item.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

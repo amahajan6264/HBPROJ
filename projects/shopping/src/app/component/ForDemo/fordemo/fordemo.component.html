@@ -1,0 +1,31 @@
+<div class="container-fluid mt-2 row">
+    <div class="col">
+        <ol>
+            <li *ngFor="let item of category">
+                {{item}}
+            </li>
+        </ol>
+    </div>
+    <div class="col">
+        <select name="" id="">
+            <option *ngFor="let item of category">{{item}}</option>
+        </select>
+    </div>
+    <div class="col">
+        <ul class="list-unstyled">
+            <li *ngFor="let item of category"><input type="checkbox"><span>{{item}}</span></li>
+        </ul>
+    </div>
+    <div class="col">
+        <button class="btn btn-primary w-30 mb-3" *ngFor="let item of category">{{item}}</button>
+    </div>
+
+    <div class="col">
+        <details *ngFor="let item of menu">
+            <summary> {{item.catgory}}</summary>
+            <ol type="A">
+                <li *ngFor="let product of item.products" >{{product}}</li>
+            </ol>
+        </details>
+    </div>
+</div>

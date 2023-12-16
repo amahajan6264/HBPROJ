@@ -1,0 +1,5 @@
+<div class="container-fluid p-2 bg-dark text-white" style="height: 585px;">
+    <h2>Parent component <button class="btn btn-light" (click)="SendCick()">Send Message to child</button></h2>
+    <app-child (ChildClick)="GetMessageFromChild($event)" [MessageFromParent]="MessageToChild" [ProductDetail]="product"></app-child>
+    <h2>{{MessageFromChild}}</h2>
+</div>

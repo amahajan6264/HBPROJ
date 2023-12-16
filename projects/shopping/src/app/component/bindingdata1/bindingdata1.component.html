@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Form</title>
+    <!-- Include Bootstrap CSS from a CDN -->
+
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <h2>Bootstrap Form</h2>
+      
+            <!-- Text Input -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter your username"
+                    [(ngModel)]="Name">
+            </div>
+
+            <!-- Password Input -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" placeholder="Enter your password"
+                    [(ngModel)]="password">
+            </div>
+
+            <!-- Checkbox -->
+            <div class="form-switch">
+                <input type="checkbox" class="form-check-input" id="remember" [(ngModel)]="checkbox">
+                <label class="form-check-label" for="remember">Remember me</label>
+            </div>
+
+            <!-- Submit Button -->
+           
+    </div>
+    <div>
+        <table>
+            <tr>
+                <th>Username : </th>
+                <td>{{Name}}</td>
+            </tr>
+            <tr>
+                <th>Password : </th>
+                <td>{{password}}</td>
+            </tr>
+            <tr>
+                <th>User :</th>
+                <td>{{checkbox==true?"valid user":"unvalid user"}}</td>
+            </tr>
+        </table>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+}
+form{
+    border: 2px solid darkcyan;
+    padding: 20px;
+    box-shadow: 2px 2px 2px black;
+}
+h2{
+    color: brown;
+}
+
+
+body {
+    background-image: url('../../../../../../pexels-anjana-c-674010.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
