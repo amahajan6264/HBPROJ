@@ -1,7 +1,17 @@
 <div class="container-fluid">
     <h2>Register user</h2>
-    <form action="">
-
-        
-    </form>
+    <form action="" [formGroup]="frmRegister">
+        <dl>
+            <dt>User Name</dt>
+            <dd><input formControlName="UserName" type="text"></dd>
+            <dt>Mobile</dt>
+            <dd><input formArrayName="Mobile" type="text"></dd>
+        </dl>
+        <button>Register</button>
+    </form> 
+    <details>
+        <h2>Detail</h2>
+        User Name : {{frmRegister.value.UserName}}
+        Mobile    : {{frmRegister.value.Mobile}} 
+    </details>
 </div>
