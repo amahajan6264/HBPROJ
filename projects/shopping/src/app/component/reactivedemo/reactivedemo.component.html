@@ -1,11 +1,25 @@
 <div class="container-fluid">
     <h2>Register user</h2>
-    <form action="" [formGroup]="frmRegister">
+    <form action="" [formGroup]="frmRegister"> 
+        <!-- (submit)="FormSubmit(frmRegister.value)"> -->
         <dl>
             <dt>User Name</dt>
             <dd><input formControlName="UserName" type="text"></dd>
+            <dd class="text-danger" *ngIf="UserName.invalid && UserName.touched">
+                <span *ngIf="UserName.errors?.['required']">User Name is required..</span>
+                <span *ngIf="UserName.errors?.['maxlength']">User Name is to log..</span>
+                <span *ngIf="UserName.errors?.['minlength']">User Name is to small..</span>
+            </dd>
             <dt>Mobile</dt>
-            <dd><input formArrayName="Mobile" type="text"></dd>
+            <dd><input formControlName="Mobile" type="text"></dd>
+            <dd class="text-danger" *ngIf="Mobile.invalid && Mobile.touched">
+                <span *ngIf="Mobile.errors?.['required']">Mobile number is required..</span>
+                <span *ngIf="Mobile.errors?.['pattern']">Mobile number is invalid 10 digit only ..</span>
+            </dd>
+            <dt>Upload you photo <button (click)="AddControls()" class="btn btn-link">more</button></dt>
+            <div *ngFor="let items of Photos.controls; let i = index">
+                <input type="file" formControlName="i"><button (click)="RemoveClick(i)" class="btn btn-link">remove</button>
+            </div>
         </dl>
         <button>Register</button>
     </form> 
@@ -13,5 +27,6 @@
         <h2>Detail</h2>
         User Name : {{frmRegister.value.UserName}}
         Mobile    : {{frmRegister.value.Mobile}} 
+        
     </details>
 </div>
