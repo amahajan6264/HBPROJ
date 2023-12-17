@@ -1,0 +1,763 @@
+codeproject
+pmd rules for language
+
+
+*TypeSript architecture
+
+1. core  ts compiler
+2. stand alone ts compiler
+3. language services
+4. ts service
+5. vs shim
+
+
+npm install -g typescript
+npm -v
+
+
+*translating the ts code to js
+tsc program.ts
+
+* Run the javascript program
+not program.js
+
+TypeScript Language Basics
+Sudhakar Sharma
+•
+Jul 1
+TypeScript Language Basics [Same as JavaScript]
+1. Variables
+2. Data Types
+3. Operators
+4. Statements
+5. Functions
+
+                             Variables
+- Variables are declarated by using
+        a) var
+        b) let
+        c) const
+
+- Var
+    * Defines function scope variable
+    * Allows hoisting and shadowing
+    * Allows declaring, assigning and intialization
+
+function f1(){
+    var x;              // Declaring
+    x = 10;             // Assigning
+    if(x==10)
+    {
+        var y = 20;     // Initialization
+    }
+}
+
+Syntax:
+function f1(){
+    var x;              // Declaring
+    x = 10;             // Assigning
+    if(x==10)
+    {
+        var y = 20;     // Initialization
+        var y = 30;     // Shadowing
+        z = 40;
+    }
+    var z;              // Hoisting
+}
+
+
+- Let
+    * It defines block scope variable.
+    * It allows declaring, assigning, initialization
+    * It will not allow shadowing and hoisting.
+
+function f1(){
+   let x;           // Declaring
+   x = 10;          // Assigning
+   if(x==10){
+     let y = 20;    // Initialization
+     z = 40;
+     let z;            // Invalid - Hoisting
+    let y = 30;    // Invalid - Shadowing
+   }
+}
+
+- const
+    * It is block scope
+    * It allows only initialization.
+    * No declaring, assigning, shadowing and hoisting.
+   
+FAQ: What is difference between readonly and const?
+Ans : const initializes memory that allows value only at the time of
+         initialization. It can store any new value every time when  
+          memory is initialized.
+
+        read-only will make the value readonly so that you can't
+        change value after initialization. It makes the value immutable.
+
+
+                            Data Types
+- TypeScript supports all JavaScript data types.
+- TypeScript is strongly typed.
+
+Syntax:
+        var   variableName:dataType;
+
+- JavaScript Data Types  used by TypeScript
+    1. Primitive Types
+        a) number
+        b) string
+        c) boolean
+        d) null
+        e) undefined
+    2. Non Primitive Types
+        a) Array
+        b) Object
+        c) Map
+
+Syntax:
+            let  userName:string;
+            let  age:number;
+            let  stock:boolean;
+       
+            let  categories:string[]  = [ ]  or  new Array()
+            let  values:any[] = [ ]
+
+- TypeScript supports union of  Types
+
+            let   varaibleName:dataType | dataType | dataType;
+
+Ex:
+
+let flag:boolean = confirm("Are you sure?");
+let userName:string|null = prompt("Your Name");
+
+======================================================================================
+===================================Operators==========================================
+======================================================================================
+- TypeScript operators all are same as JavaScript operators
+
+1. Arithematic
+2. Comparision
+3. Logical
+4. Assignment
+5. Bitwise
+6. Special
+        typeof, instanceof, in, of, void, new, yeild, delete etc..
+
+
+                             Statements
+- TypeScript statements are same as JavaScript
+1. Selection Statements
+        if, else, switch, case, default
+
+2. Iteration Statements
+        for..in, for..of
+
+3. Looping Statements
+        for, while, do while
+
+4. Jump
+        break, return, continue
+
+5. Excepting Handling
+        try, catch, throw, finally
+
+========================================================================================
+===================================Functions============================================
+========================================================================================
+- TypeScript functions are same as JavaScript but can configure data type for parameter and return type.
+
+1. Parameterized Functions
+2. Parameterless Functions
+3. Rest Parameters
+4. Function Recurrsion
+5. Anonymous Function
+6. Function Closure
+7. Function Returns
+8. Promise    [fetch()]
+9. Arrow functions
+
+- In TypeScript function parameters are defined with data type and function is defined with return type.
+
+Ex:
+function Addition(a:number, b:number):number
+{
+    return a+b;
+}
+function Details(id:number, name:string, stock:boolean):void
+{
+    console.log(Id=${id}\nName=${name}\nStock=${stock});
+}
+var Print = function(){
+
+}
+var hello = () => {console.log('Hello !')}
+
+
+- TypeScript function allows Optional Parameter by using
+    "?" null reference character.
+- Function can have optional parameter but it must be the last in formal list.
+   
+function Details(id:number, name?:string, stock?:boolean):void
+{
+    console.log(Id=${id}\nName=${name}\nStock=${stock});
+}
+Details(1,"TV");
+
+
+========================================================================================
+==================================TypeScript OOP========================================            
+========================================================================================
+- In real world software development we uses following programming systems
+    1. POPS        [Process Oriented Programming System]
+    2. OBPS        [Object Based Programming System]
+    3. OOPS        [Object Oriented Programming System]
+
+FAQ: What are the various programming approaches?
+Ans:  
+        1. Functional Programming
+        2. Structrual Programming
+        3. Imperative Programming  etc..
+
+Is JavaScirpt OOP language?
+No.
+                           
+                                TypeScript OOP
+- It supports low level features
+- It can interact with hardware services
+- It is faster
+- It uses less memory
+
+1. Contracts
+2. Templates
+3. Components
+4. Modules
+5. Namespaces
+Class in OOP
+Sudhakar Sharma
+•
+Jul 2
+TypeScript OOP
+- Contracts - Interface
+- Class
+========================================================================================
+===================================TypeScript Class=====================================
+========================================================================================
+- TypeScript class comprises following members
+    a) Properties
+    b) Methods
+    c) Accessors
+    d) Constructor
+- TypeScript class supports static members
+
+    a) Static is continous memory
+    b) Non Static is discreet memory
+
+- TypeScript class supports access modifiers
+
+    a) public
+    b) private
+    c) protected
+
+                            Class Members
+1. Property:
+    It is used to store data.
+    It is defined with access modifier and data type.
+
+    Syntax:
+                public  PropertyName:dataType = Value;
+
+FAQ: What is difference between a Variable and Property?
+Ans:  Variables are Immutable [structure can't change]
+        Properties are Mutable   [structure can change]
+
+2. Accessors:
+   - It provides a fine grained control over property.
+   - You can control the property and its structure using accessors.
+   - Accessors are 2 types
+        a) Getter
+        b) Setter
+   - Getter is used to read value from a property.
+   - Setter is used to store value into a property.
+
+Syntax:
+        get   PropertyName()
+        {
+            return value;
+        }
+
+        set  PropertyName(newValue)
+        {
+            value = newValue;
+        }
+
+Ex: Accessing property without accessors
+
+
+class Product
+{
+    public Name:string = "TV";
+}
+let tv = new Product();
+tv.Name = "Samsung TV";             // Set
+
+console.log(TV : ${tv.Name});     // Get
+
+
+FAQ: How to restrict a property from storing new value?
+Ans: By marking it as "readonly"
+
+    public readonly Name:string = "TV";
+
+FAQ: How to configure a property that can change its behaviour according to state and situation?
+Ans: By using Accessors
+
+Ex:
+Index.ts
+
+var username:string|null = prompt("Enter User Name");
+var role:string|null = prompt("Enter Your Role");
+var productname:any = prompt("Enter Product Name");
+
+class Product
+{
+    public _productName:any;
+
+    get ProductName(){
+        return this._productName;
+    }
+    set ProductName(newName:string){
+        if(role=="admin") {
+            this._productName = newName;
+        } else {
+            document.write(Hello ! ${username} - You are not authorized to set Product Name);
+        }
+    }
+}
+let obj = new Product();
+obj.ProductName = productname;
+if(obj.ProductName) {
+    document.write("Product Name = " + obj.ProductName);
+}
+
+> tsc index.ts
+
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../src/index.js"></script>
+</head>
+<body>
+   
+</body>
+</html>
+
+- You can also use accessors to access any node form multilevel hierarchy.
+
+Ex:
+
+class Product
+{
+     public Name:string = "";
+     public Price:number = 0;
+     public Rating:any = {
+         RegisterUserRating: {
+            Rate: 4.2,
+            Count: 56000
+         },
+         GuestUserRating: {
+            Rate: 3.2,
+            Count: 4600
+         }
+     }
+
+     get GuestRating(){
+        return this.Rating.GuestUserRating.Rate as Number;
+     }
+    get RegisterRating() {
+       return this.Rating.RegisterUserRating.Rate as Number;
+    }
+
+}
+let obj = new Product();
+console.log(obj.GuestRating);
+console.log(obj.RegisterRating);
+
+
+Summary
+- Property
+- Accessor
+
+                                "Methods"
+- Methods and Functions are used for "Refactoring".
+- Refactoring is a technique of extracting a function or method for set of statements, so that you can reuse.
+- Method defines actions to perform.
+
+FAQ: What is difference between method, function, procedure?
+
+
+*Binding
+
+interpolation 
+property
+attribute
+ngmodule :-for two way biding of data it is seprate module in angular which we need to import in module.ts
+	  file it is available in angualar/form package
+
+
+Angular Data Binding
+-MVC
+-MVVM
+-one way binding
+-two way binding
+
+	Angular structural directives
+-you can handle dom manipulation using structural directives
+a) adding element into dom
+b) removing element
+c) updating data into element
+d) creating element
+
+*JavaScript manges DOM manipulation using a lot of DOM methods
+ create a new Element   : document.createElement()
+ add element into page  : append(),appendChild()
+
+	*Angular can manage by usng directives
+
+		* ngIf
+		* ngSwitch
+		* ngFor
+
+			*ngIf 
+      : it is used to add or remove element from DOM
+        It uses a boolean value
+        If set to true then it will add the element
+        If set to false then it will remove the element
+
+working with dom we have the directives
+
+
+			*ngSwitch
+
+-NgIf can't handle multiple  conditions 
+-NgSwitch can handle multiple condition
+-it can add any specific block from a given set of blocks
+-if there are multipe blocks to toggle then use switch;
+
+
+*ngFor properties
+
+even
+odd
+first
+last
+index
+track
+
+
+ng serve --project = Shoping
+ng g c fordeomi --skip-tests
+
+
+
+Attribute Directives
+
+-ngClass
+-ngStyle
+-ngModel
+
+ngClass:
+-It is used to apply CSS class dyanamically to any html element
+-You can chane the class accroding to state and situation
+-it provides 3 reference methods
+	a).String
+	b).array
+	c).object
+
+<div [ngClass]="'classname'"/>
+<div [ngClass]="['class1','class2']"/>
+<div [ngClass]="{'classname':true/false}"/> 
+
+-It is often known as "Class Binding"
+  in this exmple we are binding the css classes we can change dynamically
+22-25min
+
+*TrackBY : 
+
+trackBy is the function pointer
+
+ for tracking the object example we have the 20 record in our object if want to add the 10 record more then at the time of displaying reocrd it will iterate all record  this will affect on project performance trackby is use for tracking already available reocrd it will iterate only the newly added record not already available reocrd
+
+    
+
+
+========================================================================================
+==============================Angular Event Binding=====================================
+========================================================================================
+-Angular uses all javascript browser events
+-Event are categorized into various groups
+
+1.Mouse Events
+2.KeyBord
+3.Button
+4.Timer
+5.ClipBord
+6.Element state
+7.Touch 
+8.Form 
+
+-Angular binds event using "()"
+
+
+-Angular provides only one default argument "$event"
+[JavaScript have 2 default argument "this,event"]
+
+-$event can send the information about object and event to any method
+
+Syntax:
+<button (click)="ButtonClicked($event)">
+<button onclick="ButtonClicked(this,event)">
+
+-Every event object comprises of detail about object and event
+
+$event={
+target:{id,name,value,classname..}
+clientX,
+clientY,
+keyCode,
+altKey,
+ctrlkey...
+
+}
+
+
+23 vidio 25 min
+
+
+Angular custom events
+
+
+-you can configure event for your components in order to handle specific functionality
+
+-you have to define custom events to  define any custom functionlity for your component
+
+-To handle custom events you have  to know
+  a).How to transport data from parent component to child
+  b).How to transport data from child to parent
+
+
+a).How to transport data from parent component to child
+=======================================================
+-In order to transport data from parent to child?
+-Child component must have property that stores the value coming from parent
+-Any property defined in child is not accessible to parent
+-You have to mark it by using the direct "@Input()"
+-Input is member of "@angular/core"
+
+import {input} from "@angular/core"
+
+@Input() public MessageFromParent:string="";
+
+
+
+-Pass data from parent to child property
+<app-child [MessageFromParent]="'any string for'"></app-child>
+
+-In child compoent Html display the value
+ <p>{{MessageFromParent}}</p>
+
+
+
+========================================================================================
+=======================How to transport data from child to parent=======================
+========================================================================================
+
+
+-You have to create a custom event that can emit value from child component to parent
+-Custom event is defined by using "EventEmitter".
+	public EventName:EventEmitter<T> =new EventEmitter<T>;
+
+
+-Every event you created is not accessible to parent
+-Then you have to mark your custom event with "@Output()"
+
+@Output() public EventName:EventEmitter<> =new EventEmitter<T>();
+
+-To emit any value you need to a trigger
+-Trigger is default event
+
+
+
+Summary
+-Data Binding
+-Style Binding
+-Class Binding
+-Event Binding
+-Custom Binding
+
+=================================Angular Services=======================================
+-Services is a pre-defined business logic
+-You can inject and implement in any  component
+-it enables reusabiltity of any functional.
+
+
+-Service depends on 
+a).Injector
+b).Provider
+
+-Provider will locate your service in memory
+-Injector will inject your service into component
+-Angular service is generated by using 
+	>ng g service servicename
+
+
+=======================================================================================
+===========================Angular HttpClient Service==================================
+=======================================================================================
+-It is used to connect with API.
+-Fetch also connects with API , but the issues with fetch
+	
+	a).It returns data in binary
+	b).You have to convert into JSON
+	c).Fetch is sync, it blocks all other tasks while fetching
+	d).Security Issues
+	e).Error tracking
+
+
+
+-Angular provides "HttpClient" service to communicate with API
+-HttpClient uses "rxjs", it is a library for  handling asynchronous requests.
+	a).It return data in JSON
+	b).It is async
+	c).Handles Error 
+
+
+-Angular HttpClient is defined in "HttpClientModules" 
+
+Ex
+1. Import HttpClientModule in "app.module.ts"
+2. import  "rxjs" module it come with angular framework in seprately at the 
+   time of installation but it is not angular  module it is the seprate 
+   javascript liberary for executing the asynchronous operation
+
+ import{HttpClientModule} from '@angular/common/http'
+ 
+ imports:[
+     HttpClientModule	
+ ]
+
+Observable for define the asynchronous method
+Subscribe for executing the method and reading the data
+
+
+
+========================================================================================
+=======================================Angular Form=====================================
+========================================================================================
+-Angular Form are classified into 2 type
+	a) Template Driven Forms
+	b) Model Driven Forms or Reactive Forms
+-Template Driven Forms
+	*Form and Elemnts all are configure at UI level
+	*It reduces the number of requests 
+	*Heavy on UI 
+	*Tightly coupled
+	*Not easy to extend
+	*If you are not looking regular extension then better 	 to use Template Driven Forms
+	*You can configure form by using "ngForm"
+	*You can configure elements in form by using "ngModel"
+
+	<form #frmRegister="ngForm">
+	   <input type="text" name="Name" ngModel 	  	   #Name="ngModel">
+	</form>
+	
+	*ngForm provides following attributes 
+	value     : It is an Objects that can access all form 
+		elements and there value
+	valid     : It return true if form contains all valid 		fields
+	invalid   : It return true if any one form field is 		   invalid.
+	pristine  :It return true if form touched 
+	dirty	  :It return true if any field in form is not 
+		   touched
+	submitted : It return true if from submitted
+
+	*Form data is submitted by using "ngSubmit" or "submit" event
+	<form #frmRegister="ngForm" (submit)="">
+	<form #frmRegister="ngForm" (ngSubmit)="">	
+
+-You can access the form value, which is an object that comprices of field name as key and its value as the property value
+
+		{
+			"Field"="Value"
+		}
+
+	frmRegister.value={Name:"",Age:""};
+	
+========================================================================================
+=================================Form validation Serviecs===============================
+========================================================================================
+-Angular can use all HTML validation attributes
+		required
+		minlength
+		maxlength
+		pattern
+		min
+		max
+		email
+		url
+		
+		
+-Angular provides validation services, which can verify the html validation and 
+report to the  issues.
+-Angular form validation
+		pristine
+		dirty
+		valid
+		invalid
+		submitted
+
+-Form state validation services are used to verify all in the form as single unit.
+-you can identify the 	problem in every field indivisully and report by using 
+input state validation 	services
+
+				pristine
+				dirty
+				valid 
+				invalid
+				touched
+				untouched
+				errors
+				
+
+26 vidio 40min
+
+======================================================================================
+===============================Model Driven Form -Reative Form========================
+======================================================================================
+-You can configure form at contorller level
+-It makes UI clean and light weight.
+-It allows to change the form dynmically
+-It is easy to extend the form
+-You have to import "ReactiveFormModule"
+-Rective Form Module provides a "FormBuilder" service
+-It provides 3 method
+ 
+ a).group()   : It is used to configure <form>
+ b).control() : It is used to configure <input> <select> etc..
+ c).array()   : It is a set controls
+ 
+ 
+ 
+ Angular < 13
+	fb.frmRegister.value.control.property
+ Angular < 14
+	get Accessor(){
+		return control;
+	}
+	
+	Accessor we can the behaviour of the property
+	as the read-only or read-write
+	define the lengthy hierarchy in simple way
