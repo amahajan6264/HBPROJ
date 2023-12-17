@@ -761,3 +761,19 @@ input state validation 	services
 	Accessor we can the behaviour of the property
 	as the read-only or read-write
 	define the lengthy hierarchy in simple way
+	
+	
+we can add and remove the element of the form using the reactive form technique
+for we need to impor the formbuiler and formcontrol moude from angualar/form 
+we can check the code of reactiveform in git  add and remove the field from form
+https://github.com/amahajan6264/HBPROJ/commit/dab5052548df8649b69458fd1491eeee91fdcbbc
+
+==============================================================
+==========================Angular Pipes=======================
+==============================================================
+	-Pipes are used to transform data.
+		"john" string, varchar2
+	-Data comes from various soruces.
+	-Angular transform the data and present in UI
+	-The transformed data may not be user friendly
+	-Explicitly 	
