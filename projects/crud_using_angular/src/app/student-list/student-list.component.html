@@ -1,0 +1,32 @@
+<div class="text-center mt-3 ">
+    <div *ngIf="deleteFlag" class="text-success">
+       {{message}}
+    </div>
+    <h2><Strong>Student List</Strong></h2>
+    <div>
+        <table class="table table-bordered table-striped table-hover" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                    <th>Address</th>
+                    <th>Update</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students; trackBy: trackById">
+                    <td>{{student.id}}</td>
+                    <td>{{student.studentName}}</td>
+                    <td>{{student.studentEmail}}</td>
+                    <td>{{student.studentCourse}}</td>
+                    <td>{{student.studentAddress}}</td>
+                    <td><button class="btn btn-success" (click)="updateStudent(student.id)">Update</button></td>
+                    <td><button class="btn btn-danger" (click)="deleteStudent(student.id)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

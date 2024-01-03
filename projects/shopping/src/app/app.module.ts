@@ -24,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { ServicedemoComponent } from './component/servicedemo/servicedemo.component';
 import { ReactivedemoComponent } from './component/reactivedemo/reactivedemo.component';
+import { StudentService } from 'projects/crud_using_angular/src/app/student.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +56,6 @@ import { ReactivedemoComponent } from './component/reactivedemo/reactivedemo.com
     ReactiveFormsModule
   ],
   providers: [],
-  bootstrap: [ReactivedemoComponent]
+  bootstrap: [ServicedemoComponent]
 })
 export class AppModule { }
