@@ -1,0 +1,54 @@
+<div class="container mt-5 ">
+  <div class="row justify-content-center ">
+      
+    <div *ngIf="submitted" class="text-center">
+      <span class="text-success">Student is save successfully with "{{dataSave.id}}" Id</span>
+    </div>
+    
+    <div class="col-md-6 bg-success rounded-3">
+
+      <h2>Student Registration</h2>
+      <form [formGroup]="frmSave" (ngSubmit)="saveStudent(frmSave.value)">
+        <div class="form-group mt-3">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" formControlName="StudentName" onclick="progress()">
+          <div class="btn btn-danger" *ngIf="StudentName.invalid && StudentName.touched">
+            <span *ngIf="StudentName.errors?.['required']">Student name is required</span>
+            <span *ngIf="StudentName.errors?.['minlength']">Student name is to short</span>
+            <span *ngIf="StudentName.errors?.['maxlength']">Student name is to long</span>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" formControlName="StudentEmail">
+          <div class="btn btn-danger" *ngIf="StudentEmail.invalid && StudentEmail.touched">
+            <span *ngIf="StudentEmail.errors?.['required']">Student email is required</span>
+            <span *ngIf="StudentEmail.errors?.['email']">Student email pattern is not valid</span>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" formControlName="StudentAddress">
+          <div class="btn btn-danger" *ngIf="StudentAddress.invalid && StudentAddress.touched">
+            <span *ngIf="StudentAddress.errors?.['required']">Student address is required</span>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <label for="course">Course</label>
+          <input type="text" class="form-control" formControlName="StudentCourse">
+          <div class="btn btn-danger" *ngIf="StudentCourse.invalid && StudentCourse.touched">
+            <span *ngIf="StudentCourse.errors?.['required']">Student course name is required</span>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <button type="submit" class="btn btn-primary"
+            [disabled]="frmSave.invalid">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="reset" class="btn btn-danger">Cancel</button>
+        </div>
+      </form>
+      <footer class="copyright mt-3">
+        <p>&copy; 2023 Financial softwae system. All rights reserved.</p>
+      </footer>
+    </div>
+  </div>
+</div>
