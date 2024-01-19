@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StudentService } from '../student.service';
 import { Subject } from 'rxjs';
+import { Student } from '../student';
 
 
 @Component({
@@ -12,7 +13,8 @@ export class StudentListComponent implements OnInit {
   message:String=``;
   ///dtOptions: DataTables.Settings = {};  
   dtTrigger: Subject<any>= new Subject(); 
-  public students: any[] = [];
+  //public students: any[] = [];
+  public students:Student[]=[];
   deleteFlag:boolean=false;
   constructor(private studentservice: StudentService) {}
 
@@ -25,10 +27,13 @@ export class StudentListComponent implements OnInit {
     //   lengthMenu:[[6, 16, 20, -1], [6, 16, 20, "All"]],  
     //   processing: true  
     // }; 
-    this.studentservice.getStudentList().subscribe(data => {
-        this.students = data;
-        this.dtTrigger.next(this.students);
-    });
+    // this.studentservice.getStudentList().subscribe(data => {
+    //     this.students = data;
+    //     this.dtTrigger.next(this.students);
+    // });
+    this.studentservice.getStudentList().subscribe((data : Student[])=>{
+      this.students=data;
+    })
 
   }
 

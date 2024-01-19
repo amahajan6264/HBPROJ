@@ -1,5 +1,5 @@
 export class Student {
-    studentId:number=0;
+    id:number=0;
     studentName:string="";
     studentEmail:string="";
     studentAddress:string="";

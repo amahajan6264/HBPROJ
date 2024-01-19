@@ -36,6 +36,7 @@ export class SaveStudentComponent implements OnInit {
 
 
   saveStudent(frmdata: any) {
+    alert(JSON.stringify(frmdata));
     this.student = new Student();
     this.student.studentName = this.StudentName.value;
     this.student.studentEmail = this.StudentEmail.value;
