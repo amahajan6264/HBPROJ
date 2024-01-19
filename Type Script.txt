@@ -760,4 +760,149 @@ input state validation 	services
 	
 	Accessor we can the behaviour of the property
 	as the read-only or read-write
+<<<<<<< HEAD
 	define the lengthy hierarchy in simple way
+	
+	
+we can add and remove the element of the form using the reactive form technique
+for we need to impor the formbuiler and formcontrol moude from angualar/form 
+we can check the code of reactiveform in git  add and remove the field from form
+https://github.com/amahajan6264/HBPROJ/commit/dab5052548df8649b69458fd1491eeee91fdcbbc
+
+==============================================================
+==========================Angular Pipes=======================
+==============================================================
+	-Pipes are used to transform data.
+		"john" string, varchar2
+	-Data comes from various soruces.
+	-Angular transform the data and present in UI
+	-The transformed data may not be user friendly
+	-Explicitly we can transform and make it user friendly by using "Pipes"
+Pipes:
+
+-uppercase
+-lowercase
+-titlecase
+-number
+-currency
+-date
+-slice
+-json
+	
+					Angular Router SPA
+					
+-It configures navigation for SPA
+-User will stay on single page  and get access to everything
+on to the page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Build and Deployment
+
+-Buiding is the process of checking
+	a)Syntacttical Errors
+	b)Dependencies
+	c)Directives
+	d)Meta Data
+-After checking project transcompiles Typescript into JavaScript
+-Copy all files into a folder called "dist"
+-"Dist" folder is "Production Ready" [for deploying - go live]
+-To Build Anuglar Project
+	
+	>ng build [dist folder]
+	
+FAQ: Can we build into any another 	folder?
+Ans :  Yes
+	>ng build outputPath=folderName
+FAQ : Angular default path "http://locahost:4200", can we change
+ans : 
+	>ng build baseHref=http://localhost:8080
+	
+FAQ: By default project starts with index 	page , can we change?\
+Ans: Yes	
+	>ng build --index=login
+
+To buid Project
+ >ng buid --project=projectname
+ 
+ 
+Deployment
+==========
+
+-You can deploy your project on
+	a)Local Servers
+		IIS[Internet information services]
+		XAMPP
+		WAMP
+		tomcat
+		MAMP etc..
+	b)Cloud Servers
+		Firebase
+		Azure
+		GitHub Pages
+		AWS
+		Now
+		Netify etc..
+
+		
+			Deploy Anuglar Project 	on Firebase
+			
+-Firebase is Google cloud 
+
+1. Create a new Project on firebase cloud
+ 
+ http://firebase.google.com
+
+2.Go to Console
+ [+] add Project
+
+3.Enter the project name
+
+	name
+	
+4.Click continue
+	Enable Google Analytics
+
+5.Select "Default Account"
+
+6.create new project
+
+	Project is ready on "firebase" cloud
+	you have to push your Angular project into firebase cloud.
+	Angular Provides various libraries for cloud
+
+7.Install "Firebase Tools on your PC"
+	
+	c:\>npm install -g firebase-tools
+	
+8.Login into 
+	firebase login
+	
+9.Go to your project and add a new library for firebase
+  >ng add @angular/fire --project=ishop
+  
+  What feature would you like to setup? ng deploy - hosting
+
+10.Configuration finished
+
+11.You have to deploy all files into configure projet
+
+12. Run the following command
+
+	>ng deploy --project=ishop
+=======
+	define the lengthy hierarchy in simple way
+>>>>>>> main

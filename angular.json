@@ -94,6 +94,13 @@
         }
       }
     },
+
+    "crud_using_angular": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/crud_using_angular",
+      "sourceRoot": "projects/crud_using_angular/src",
+
     "curd_using_angular": {
       "projectType": "application",
       "schematics": {},
@@ -104,6 +111,20 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+
+            "outputPath": "dist/crud_using_angular",
+            "index": "projects/crud_using_angular/src/index.html",
+            "main": "projects/crud_using_angular/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/crud_using_angular/tsconfig.app.json",
+            "assets": [
+              "projects/crud_using_angular/src/favicon.ico",
+              "projects/crud_using_angular/src/assets"
+            ],
+            "styles": [
+              "projects/crud_using_angular/src/styles.css",
             "outputPath": "dist/curd_using_angular",
             "index": "projects/curd_using_angular/src/index.html",
             "main": "projects/curd_using_angular/src/main.ts",
@@ -151,6 +172,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+
+              "browserTarget": "crud_using_angular:build:production"
+            },
+            "development": {
+              "browserTarget": "crud_using_angular:build:development",
               "browserTarget": "curd_using_angular:build:production"
             },
             "development": {
@@ -162,6 +188,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+            "browserTarget": "crud_using_angular:build",
             "browserTarget": "curd_using_angular:build"
           }
         },
@@ -172,6 +199,14 @@
               "zone.js",
               "zone.js/testing"
             ],
+
+            "tsConfig": "projects/crud_using_angular/tsconfig.spec.json",
+            "assets": [
+              "projects/crud_using_angular/src/favicon.ico",
+              "projects/crud_using_angular/src/assets"
+            ],
+            "styles": [
+              "projects/crud_using_angular/src/styles.css",
             "tsConfig": "projects/curd_using_angular/tsconfig.spec.json",
             "assets": [
               "projects/curd_using_angular/src/favicon.ico",

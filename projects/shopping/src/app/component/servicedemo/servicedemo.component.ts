@@ -16,7 +16,11 @@ export class ServicedemoComponent implements OnInit{
     
     this.api.GetCategories()
     .subscribe(
-      data => this.Categories=data
+      data =>{ 
+        alert("cat");
+        this.Categories=data
+      
+      }
     );
     this.api.GetProducts()
     .subscribe(
