@@ -94,16 +94,24 @@
         }
       }
     },
+
     "crud_using_angular": {
       "projectType": "application",
       "schematics": {},
       "root": "projects/crud_using_angular",
       "sourceRoot": "projects/crud_using_angular/src",
+
+    "curd_using_angular": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/curd_using_angular",
+      "sourceRoot": "projects/curd_using_angular/src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+
             "outputPath": "dist/crud_using_angular",
             "index": "projects/crud_using_angular/src/index.html",
             "main": "projects/crud_using_angular/src/main.ts",
@@ -116,7 +124,20 @@
               "projects/crud_using_angular/src/assets"
             ],
             "styles": [
-              "projects/crud_using_angular/src/styles.css"
+              "projects/crud_using_angular/src/styles.css",
+            "outputPath": "dist/curd_using_angular",
+            "index": "projects/curd_using_angular/src/index.html",
+            "main": "projects/curd_using_angular/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/curd_using_angular/tsconfig.app.json",
+            "assets": [
+              "projects/curd_using_angular/src/favicon.ico",
+              "projects/curd_using_angular/src/assets"
+            ],
+            "styles": [
+              "projects/curd_using_angular/src/styles.css"
             ],
             "scripts": []
           },
@@ -151,10 +172,15 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+
               "browserTarget": "crud_using_angular:build:production"
             },
             "development": {
-              "browserTarget": "crud_using_angular:build:development"
+              "browserTarget": "crud_using_angular:build:development",
+              "browserTarget": "curd_using_angular:build:production"
+            },
+            "development": {
+              "browserTarget": "curd_using_angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -162,7 +188,8 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "crud_using_angular:build"
+            "browserTarget": "crud_using_angular:build",
+            "browserTarget": "curd_using_angular:build"
           }
         },
         "test": {
@@ -172,13 +199,21 @@
               "zone.js",
               "zone.js/testing"
             ],
+
             "tsConfig": "projects/crud_using_angular/tsconfig.spec.json",
             "assets": [
               "projects/crud_using_angular/src/favicon.ico",
               "projects/crud_using_angular/src/assets"
             ],
             "styles": [
-              "projects/crud_using_angular/src/styles.css"
+              "projects/crud_using_angular/src/styles.css",
+            "tsConfig": "projects/curd_using_angular/tsconfig.spec.json",
+            "assets": [
+              "projects/curd_using_angular/src/favicon.ico",
+              "projects/curd_using_angular/src/assets"
+            ],
+            "styles": [
+              "projects/curd_using_angular/src/styles.css"
             ],
             "scripts": []
           }

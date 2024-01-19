@@ -760,6 +760,7 @@ input state validation 	services
 	
 	Accessor we can the behaviour of the property
 	as the read-only or read-write
+<<<<<<< HEAD
 	define the lengthy hierarchy in simple way
 	
 	
@@ -902,3 +903,6 @@ Deployment
 12. Run the following command
 
 	>ng deploy --project=ishop
+=======
+	define the lengthy hierarchy in simple way
+>>>>>>> main
